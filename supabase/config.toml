@@ -1,0 +1,7 @@
+project_id = "vnmuraavcuwmjviwkfgv"
+
+[functions.krishi-chat]
+verify_jwt = false
+
+[functions.crop-recommend]
+verify_jwt = false
