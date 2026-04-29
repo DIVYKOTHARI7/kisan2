@@ -1,0 +1,347 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+/*
+ * KrishiSathi — Farmer-Friendly Design System
+ * Theme: Warm earthy tones — cream background, deep forest green primary,
+ * saffron orange accent. High-contrast, mobile-first, WCAG AA compliant.
+ */
+
+@theme inline {
+  --font-sans: "Noto Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Poppins", "Noto Sans", ui-sans-serif, system-ui, sans-serif;
+
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
+  --radius-xl: 12px;
+  --radius-2xl: 16px;
+  --radius-3xl: 20px;
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --color-success: var(--success);
+  --color-success-foreground: var(--success-foreground);
+  --color-warning: var(--warning);
+  --color-warning-foreground: var(--warning-foreground);
+  --color-info: var(--info);
+  --color-info-foreground: var(--info-foreground);
+  --color-soil: var(--soil);
+  --color-leaf: var(--leaf);
+  --color-sun: var(--sun);
+  --color-saffron: var(--saffron);
+  --color-cream: var(--cream);
+
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+
+  /* Shadows */
+  --shadow-card: 0 2px 12px rgba(0, 0, 0, 0.08);
+  --shadow-card-hover: 0 4px 20px rgba(0, 0, 0, 0.12);
+  --shadow-nav: 0 -2px 12px rgba(0, 0, 0, 0.08);
+}
+
+:root {
+  --radius: 8px;
+
+  /* === WARM EARTHY PALETTE === */
+
+  /* Backgrounds */
+  --background: #F9F5EC;
+  --foreground: #1C1C1C;
+
+  /* Cards — pure white, warm feel */
+  --card: #FFFFFF;
+  --card-foreground: #1C1C1C;
+  --popover: #FFFFFF;
+  --popover-foreground: #1C1C1C;
+
+  /* Primary — Deep Forest Green */
+  --primary: #1A5C38;
+  --primary-foreground: #FFFFFF;
+
+  /* Secondary — Warm muted surface */
+  --secondary: #EDE8DC;
+  --secondary-foreground: #3D2B1F;
+
+  /* Muted — warm off-white */
+  --muted: #F2ECE0;
+  --muted-foreground: #7B4F2E;
+
+  /* Accent — Saffron Orange */
+  --accent: #E87722;
+  --accent-foreground: #FFFFFF;
+
+  /* Semantic */
+  --destructive: #C0392B;
+  --destructive-foreground: #FFFFFF;
+  --success: #1A7A3C;
+  --success-foreground: #FFFFFF;
+  --warning: #D68910;
+  --warning-foreground: #FFFFFF;
+  --info: #1A6B9A;
+  --info-foreground: #FFFFFF;
+
+  /* Brand extended */
+  --soil: #8B5E3C;
+  --leaf: #2E8B57;
+  --sun: #F4C430;
+  --saffron: #E87722;
+  --cream: #F9F5EC;
+
+  /* Borders & Inputs */
+  --border: #D9D0BC;
+  --input: #D9D0BC;
+  --ring: #1A5C38;
+
+  /* Sidebar (desktop) */
+  --sidebar: #1A5C38;
+  --sidebar-foreground: #FFFFFF;
+  --sidebar-primary: #E87722;
+  --sidebar-primary-foreground: #FFFFFF;
+  --sidebar-accent: #1E6B42;
+  --sidebar-accent-foreground: #FFFFFF;
+  --sidebar-border: #1E6B42;
+}
+
+/* === BASE STYLES === */
+@layer base {
+  * {
+    border-color: var(--color-border);
+    box-sizing: border-box;
+  }
+
+  html {
+    font-size: 16px;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  html, body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: "Noto Sans", ui-sans-serif, system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.6;
+  }
+
+  h1, h2, h3, h4, h5, h6, .font-display {
+    font-family: "Poppins", "Noto Sans", ui-sans-serif, system-ui, sans-serif;
+    font-weight: 700;
+    line-height: 1.3;
+    letter-spacing: -0.01em;
+  }
+
+  /* Minimum tap target for all interactive elements */
+  button, a, input, select, textarea, [role="button"] {
+    min-height: 44px;
+  }
+
+  /* Visible focus rings for accessibility */
+  :focus-visible {
+    outline: 3px solid var(--color-accent);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+}
+
+/* === COMPONENT UTILITIES === */
+
+/* Farm card — white bg, soft shadow, 8px radius */
+.card-farm {
+  background-color: #FFFFFF;
+  border-radius: 8px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  border: 1px solid #E8E0D0;
+}
+
+.card-farm:hover {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+}
+
+/* Alert banners */
+.alert-warning {
+  background-color: #FEF3E2;
+  border: 2px solid #E87722;
+  border-left: 6px solid #E87722;
+}
+
+.alert-danger {
+  background-color: #FDEDEC;
+  border: 2px solid #C0392B;
+  border-left: 6px solid #C0392B;
+}
+
+.alert-success {
+  background-color: #EAFAF1;
+  border: 2px solid #1A7A3C;
+  border-left: 6px solid #1A7A3C;
+}
+
+/* Saffron CTA button */
+.btn-saffron {
+  background-color: #E87722;
+  color: #FFFFFF;
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  border-radius: 8px;
+  min-height: 52px;
+  font-size: 1rem;
+  transition: background-color 150ms ease, transform 100ms ease;
+}
+
+.btn-saffron:hover {
+  background-color: #D4681A;
+}
+
+.btn-saffron:active {
+  transform: scale(0.98);
+}
+
+/* Primary (green) CTA button */
+.btn-primary-farm {
+  background-color: #1A5C38;
+  color: #FFFFFF;
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  border-radius: 8px;
+  min-height: 52px;
+  font-size: 1rem;
+  transition: background-color 150ms ease, transform 100ms ease;
+}
+
+.btn-primary-farm:hover {
+  background-color: #144830;
+}
+
+/* Rain warning — red text */
+.rain-warning {
+  color: #C0392B;
+  font-weight: 700;
+}
+
+/* Progress bar — thick green fill */
+.progress-farm {
+  height: 10px;
+  background-color: #E8E0D0;
+  border-radius: 99px;
+  overflow: hidden;
+}
+
+.progress-farm-fill {
+  height: 100%;
+  background-color: #1A5C38;
+  border-radius: 99px;
+  transition: width 600ms ease;
+}
+
+/* Crop stage badge */
+.badge-action {
+  background-color: #E87722;
+  color: #FFFFFF;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 99px;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.badge-matched {
+  background-color: #EAFAF1;
+  color: #1A5C38;
+  border: 1.5px solid #1A5C38;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 99px;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* Bottom nav safe area */
+.bottom-nav-safe {
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+/* Skeleton loader */
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.skeleton {
+  background: linear-gradient(90deg, #EDE8DC 25%, #F5F0E8 50%, #EDE8DC 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: 6px;
+}
+
+/* Quick action large button */
+.quick-action-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  background-color: #FFFFFF;
+  border: 1.5px solid #E8E0D0;
+  border-radius: 12px;
+  padding: 16px 8px;
+  min-width: 80px;
+  min-height: 80px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  transition: all 150ms ease;
+  cursor: pointer;
+  text-align: center;
+}
+
+.quick-action-btn:hover {
+  border-color: #1A5C38;
+  box-shadow: 0 4px 16px rgba(26, 92, 56, 0.15);
+  transform: translateY(-2px);
+}
+
+.quick-action-btn:active {
+  transform: scale(0.97);
+}
+/* Horizontal scroll animation for ticker */
+@keyframes scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-scroll {
+  animation: scroll 30s linear infinite;
+  display: flex;
+  width: max-content;
+}
+
+.animate-scroll:hover {
+  animation-play-state: paused;
+}
